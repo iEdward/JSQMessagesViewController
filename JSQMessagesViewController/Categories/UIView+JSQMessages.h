@@ -35,4 +35,6 @@
  */
 - (void)jsq_pinAllEdgesOfSubview:(UIView *)subview;
 
+- (void)jsq_pinSubview:(UIView *)subview toEdge:(NSLayoutAttribute)attribute withConstant:(float)constant;
+
 @end
