@@ -166,8 +166,6 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
     self.avatarImageView.image = nil;
     self.avatarImageView.highlightedImage = nil;
-    
-    
     self.fileIcon.image = nil;
 }
 
