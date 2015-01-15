@@ -282,6 +282,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     self.cellBottomLabel.backgroundColor = backgroundColor;
 
     self.messageBubbleImageView.backgroundColor = backgroundColor;
+
     self.avatarImageView.backgroundColor = [UIColor clearColor];
     
     self.messageBubbleContainerView.backgroundColor = backgroundColor;
@@ -316,7 +317,6 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     if ([_mediaView isEqual:mediaView]) {
         return;
     }
-    
 
     //[self.messageBubbleImageView removeFromSuperview];
     [self.textView removeFromSuperview];
