@@ -156,6 +156,8 @@
  */
 @property (weak, nonatomic, readonly) UITapGestureRecognizer *tapGestureRecognizer;
 
+@property (weak, nonatomic) IBOutlet UIImageView *fileIcon;
+
 #pragma mark - Class methods
 
 /**
