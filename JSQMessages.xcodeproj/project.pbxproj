@@ -105,6 +105,8 @@
 		88C4583019F5F7A0008FD427 /* JSQMessagesMediaViewBubbleImageMasker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4582F19F5F7A0008FD427 /* JSQMessagesMediaViewBubbleImageMasker.m */; };
 		88E4D7131A0DBD6B000CC061 /* JSQMessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8841B88719F4988800EA16B6 /* JSQMessages.strings */; };
 		94A4FA20C2FBD0D62614D5A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E6750B77E8A7042BA0754B /* libPods.a */; };
+		E565D8DA1A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E565D8D81A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.m */; };
+		E565D8DB1A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = E565D8D91A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +279,9 @@
 		88C4582E19F5F7A0008FD427 /* JSQMessagesMediaViewBubbleImageMasker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQMessagesMediaViewBubbleImageMasker.h; sourceTree = "<group>"; };
 		88C4582F19F5F7A0008FD427 /* JSQMessagesMediaViewBubbleImageMasker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQMessagesMediaViewBubbleImageMasker.m; sourceTree = "<group>"; };
 		97E6750B77E8A7042BA0754B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E565D8D71A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQMessagesCollectionViewCellIncomingImage.h; sourceTree = "<group>"; };
+		E565D8D81A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQMessagesCollectionViewCellIncomingImage.m; sourceTree = "<group>"; };
+		E565D8D91A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSQMessagesCollectionViewCellIncomingImage.xib; sourceTree = "<group>"; };
 		FC5C727E4CCDA2B95A7BA30C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -543,6 +548,9 @@
 				88A25F9119D8E01A00924534 /* JSQMessagesCollectionViewCellOutgoing.h */,
 				88A25F9219D8E01A00924534 /* JSQMessagesCollectionViewCellOutgoing.m */,
 				88A25F9319D8E01A00924534 /* JSQMessagesCollectionViewCellOutgoing.xib */,
+				E565D8D71A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.h */,
+				E565D8D81A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.m */,
+				E565D8D91A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.xib */,
 				88A25F9419D8E01A00924534 /* JSQMessagesComposerTextView.h */,
 				88A25F9519D8E01A00924534 /* JSQMessagesComposerTextView.m */,
 				88A25F9619D8E01A00924534 /* JSQMessagesInputToolbar.h */,
@@ -742,6 +750,7 @@
 				88A25FD819D8E01A00924534 /* JSQMessagesTypingIndicatorFooterView.xib in Resources */,
 				88A25F3919D8DF2500924534 /* Main.storyboard in Resources */,
 				88A25FD419D8E01A00924534 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
+				E565D8DB1A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +869,7 @@
 				88A25FBA19D8E01A00924534 /* JSQMessagesKeyboardController.m in Sources */,
 				88A25FC019D8E01A00924534 /* JSQMessagesToolbarButtonFactory.m in Sources */,
 				88A25FC219D8E01A00924534 /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
+				E565D8DA1A67F4E400DC7786 /* JSQMessagesCollectionViewCellIncomingImage.m in Sources */,
 				88A25FE119D8E0C400924534 /* TableViewController.m in Sources */,
 				88A25FBD19D8E01A00924534 /* JSQMessagesAvatarImageFactory.m in Sources */,
 				88A25FB519D8E01A00924534 /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
