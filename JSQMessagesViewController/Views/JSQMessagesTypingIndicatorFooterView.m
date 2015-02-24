@@ -94,8 +94,9 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
     JSQMessagesBubbleImageFactory *bubbleImageFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     
     if (shouldDisplayOnLeft) {
-        self.bubbleImageView.image = [bubbleImageFactory incomingMessagesBubbleImageWithColor:messageBubbleColor].messageBubbleImage;
-        
+        //self.bubbleImageView.image = [bubbleImageFactory incomingMessagesBubbleImageWithColor:messageBubbleColor].messageBubbleImage;
+        self.bubbleImageView.image = [UIImage imageNamed:@"Konsierge_App_Typing_Animation_1"];
+
         CGFloat collectionViewWidth = CGRectGetWidth(collectionView.frame);
         CGFloat bubbleWidth = CGRectGetWidth(self.bubbleImageView.frame);
         CGFloat indicatorWidth = CGRectGetWidth(self.typingIndicatorImageView.frame);
@@ -105,6 +106,7 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
         
         self.bubbleImageViewRightHorizontalConstraint.constant = bubbleMarginMaximumSpacing;
         self.typingIndicatorImageViewRightHorizontalConstraint.constant = indicatorMarginMaximumSpacing;
+        
     }
     else {
         self.bubbleImageView.image = [bubbleImageFactory outgoingMessagesBubbleImageWithColor:messageBubbleColor].messageBubbleImage;
@@ -115,7 +117,7 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
     
     [self setNeedsUpdateConstraints];
     
-    self.typingIndicatorImageView.image = [[UIImage jsq_defaultTypingIndicatorImage] jsq_imageMaskedWithColor:ellipsisColor];
+    //self.typingIndicatorImageView.image = [[UIImage jsq_defaultTypingIndicatorImage] jsq_imageMaskedWithColor:ellipsisColor];
 }
 
 @end
