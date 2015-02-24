@@ -109,7 +109,7 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
         
         self.bubbleImageView.animationDuration = 1;
         [self.bubbleImageView startAnimating];
-        
+
         CGFloat collectionViewWidth = CGRectGetWidth(collectionView.frame);
         CGFloat bubbleWidth = CGRectGetWidth(self.bubbleImageView.frame);
         CGFloat indicatorWidth = CGRectGetWidth(self.typingIndicatorImageView.frame);
