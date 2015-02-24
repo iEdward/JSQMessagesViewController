@@ -439,7 +439,8 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     if (cachedSize != nil) {
         return [cachedSize CGSizeValue];
     }
-    
+    NSLog(@"%@", messageItem);
+
     CGSize finalSize = CGSizeZero;
     
     if ([messageItem isMediaMessage]) {
@@ -475,7 +476,7 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
         
         finalSize = CGSizeMake(finalWidth, stringSize.height + verticalInsets);
     }
-    
+
     [self.messageBubbleCache setObject:[NSValue valueWithCGSize:finalSize] forKey:@([messageItem messageHash])];
     
     return finalSize;

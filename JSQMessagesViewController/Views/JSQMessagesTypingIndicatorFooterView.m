@@ -88,15 +88,23 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
     NSParameterAssert(messageBubbleColor != nil);
     NSParameterAssert(collectionView != nil);
     
-    CGFloat bubbleMarginMinimumSpacing = 6.0f;
+    CGFloat bubbleMarginMinimumSpacing = 8.0f;
     CGFloat indicatorMarginMinimumSpacing = 26.0f;
     
     JSQMessagesBubbleImageFactory *bubbleImageFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     
     if (shouldDisplayOnLeft) {
         //self.bubbleImageView.image = [bubbleImageFactory incomingMessagesBubbleImageWithColor:messageBubbleColor].messageBubbleImage;
-        self.bubbleImageView.image = [UIImage imageNamed:@"Konsierge_App_Typing_Animation_1"];
+        
+        self.bubbleImageView.image = [UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_1"];
 
+        self.bubbleImageView.animationImages = @[[UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_1"],
+                                                 [UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_2"],
+                                                 [UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_3"]];
+        
+        self.bubbleImageView.animationDuration = 1;
+        [self.bubbleImageView startAnimating];
+        
         CGFloat collectionViewWidth = CGRectGetWidth(collectionView.frame);
         CGFloat bubbleWidth = CGRectGetWidth(self.bubbleImageView.frame);
         CGFloat indicatorWidth = CGRectGetWidth(self.typingIndicatorImageView.frame);
@@ -115,6 +123,7 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
         self.typingIndicatorImageViewRightHorizontalConstraint.constant = indicatorMarginMinimumSpacing;
     }
     
+
     [self setNeedsUpdateConstraints];
     
     //self.typingIndicatorImageView.image = [[UIImage jsq_defaultTypingIndicatorImage] jsq_imageMaskedWithColor:ellipsisColor];
