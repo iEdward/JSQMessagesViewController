@@ -95,7 +95,7 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  However, you will be completely responsible for responding to all touch events for these buttons
  *  in your `JSQMessagesViewController` subclass.
  */
-@property (weak, nonatomic, readonly) UIView *rightBarButtonContainerView;
+@property (weak, nonatomic, readwrite) UIView *rightBarButtonContainerView;
 
 #pragma mark - Class methods
 

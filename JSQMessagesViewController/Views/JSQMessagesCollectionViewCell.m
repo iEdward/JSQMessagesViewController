@@ -403,4 +403,29 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     return YES;
 }
 
+
+- (void)delete:(id)sender {
+    [self performSelectorOnParentCollectionView:@selector(delete:)
+                                     withSender:sender];
+}
+
+- (void)performSelectorOnParentCollectionView:(SEL)selector
+                                   withSender:(id)sender {
+    UIView *v = self;
+    do {
+        v = v.superview;
+    } while (![v isKindOfClass:[UICollectionView class]]);
+    UICollectionView *cv = (UICollectionView *)v;
+    NSIndexPath *ip = [cv indexPathForCell:self];
+    
+    if (cv.delegate &&
+        [cv.delegate respondsToSelector:@selector(collectionView:
+                                                  performAction:
+                                                  forItemAtIndexPath:
+                                                  withSender:)])
+        [cv.delegate collectionView:cv
+                      performAction:selector
+                 forItemAtIndexPath:ip
+                         withSender:sender];
+}
 @end
