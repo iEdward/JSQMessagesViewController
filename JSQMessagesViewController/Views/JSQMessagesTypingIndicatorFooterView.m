@@ -96,8 +96,6 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
     if (shouldDisplayOnLeft) {
         //self.bubbleImageView.image = [bubbleImageFactory incomingMessagesBubbleImageWithColor:messageBubbleColor].messageBubbleImage;
         
-        self.bubbleImageView.image = [UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_1"];
-
         self.bubbleImageView.animationImages = @[[UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_1"],
                                                  [UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_2"],
                                                  [UIImage imageNamed:@"JSQMessagesAssets.bundle/Images/typing_animation_3"]];
@@ -106,7 +104,7 @@ const CGFloat kJSQMessagesTypingIndicatorFooterViewHeight = 46.0f;
         [self.bubbleImageView startAnimating];
         
         self.bubbleImageView.image = [UIImage imageNamed:@"Konsierge_App_Typing_Animation_1"];
-        
+
         CGFloat collectionViewWidth = CGRectGetWidth(collectionView.frame);
         CGFloat bubbleWidth = CGRectGetWidth(self.bubbleImageView.frame);
         CGFloat indicatorWidth = CGRectGetWidth(self.typingIndicatorImageView.frame);
