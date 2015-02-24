@@ -613,7 +613,9 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
             return YES;
         }
     }
-
+    if (action == @selector(delete:)) {
+        return YES;
+    }
     return NO;
 }
 
