@@ -91,27 +91,27 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    
+
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+
     self.backgroundColor = [UIColor whiteColor];
-    
+
     self.cellTopLabelHeightConstraint.constant = 0.0f;
     self.messageBubbleTopLabelHeightConstraint.constant = 0.0f;
     self.cellBottomLabelHeightConstraint.constant = 0.0f;
-    
+
     self.avatarViewSize = CGSizeZero;
-    
+
     self.cellTopLabel.textAlignment = NSTextAlignmentCenter;
     self.cellTopLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     self.cellTopLabel.textColor = [UIColor lightGrayColor];
-    
+
     self.messageBubbleTopLabel.font = [UIFont systemFontOfSize:12.0f];
     self.messageBubbleTopLabel.textColor = [UIColor lightGrayColor];
-    
+
     self.cellBottomLabel.font = [UIFont systemFontOfSize:11.0f];
     self.cellBottomLabel.textColor = [UIColor lightGrayColor];
-    
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jsq_handleTapGesture:)];
     [self addGestureRecognizer:tap];
     self.tapGestureRecognizer = tap;
@@ -120,17 +120,17 @@
 - (void)dealloc
 {
     _delegate = nil;
-    
+
     _cellTopLabel = nil;
     _messageBubbleTopLabel = nil;
     _cellBottomLabel = nil;
-    
+
     _textView = nil;
     _messageBubbleImageView = nil;
     _mediaView = nil;
-    
+
     _avatarImageView = nil;
-    
+
     [_tapGestureRecognizer removeTarget:nil action:NULL];
     _tapGestureRecognizer = nil;
 }
@@ -140,49 +140,54 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    
+
     self.cellTopLabel.text = nil;
     self.messageBubbleTopLabel.text = nil;
     self.cellBottomLabel.text = nil;
-    
+
     self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.textView.text = nil;
     self.textView.attributedText = nil;
-    
+
     self.avatarImageView.image = nil;
     self.avatarImageView.highlightedImage = nil;
     
     self.fileIcon.image = nil;
 }
 
+- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
+{
+    return layoutAttributes;
+}
+
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 {
     [super applyLayoutAttributes:layoutAttributes];
-    
+
     JSQMessagesCollectionViewLayoutAttributes *customAttributes = (JSQMessagesCollectionViewLayoutAttributes *)layoutAttributes;
-    
+
     if (self.textView.font != customAttributes.messageBubbleFont) {
         self.textView.font = customAttributes.messageBubbleFont;
     }
-    
+
     if (!UIEdgeInsetsEqualToEdgeInsets(self.textView.textContainerInset, customAttributes.textViewTextContainerInsets)) {
         self.textView.textContainerInset = customAttributes.textViewTextContainerInsets;
     }
-    
+
     self.textViewFrameInsets = customAttributes.textViewFrameInsets;
-    
+
     [self jsq_updateConstraint:self.messageBubbleContainerWidthConstraint
                   withConstant:customAttributes.messageBubbleContainerViewWidth];
-    
+
     [self jsq_updateConstraint:self.cellTopLabelHeightConstraint
                   withConstant:customAttributes.cellTopLabelHeight];
-    
+
     [self jsq_updateConstraint:self.messageBubbleTopLabelHeightConstraint
                   withConstant:customAttributes.messageBubbleTopLabelHeight];
-    
+
     [self jsq_updateConstraint:self.cellBottomLabelHeightConstraint
                   withConstant:customAttributes.cellBottomLabelHeight];
-    
+
     if ([self isKindOfClass:[JSQMessagesCollectionViewCellIncoming class]]) {
         self.avatarViewSize = customAttributes.incomingAvatarViewSize;
     }
@@ -212,7 +217,7 @@
 - (void)setBounds:(CGRect)bounds
 {
     [super setBounds:bounds];
-    
+
     if ([UIDevice jsq_isCurrentDeviceBeforeiOS8]) {
         self.contentView.frame = bounds;
     }
@@ -223,14 +228,14 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     [super setBackgroundColor:backgroundColor];
-    
+
     self.cellTopLabel.backgroundColor = backgroundColor;
     self.messageBubbleTopLabel.backgroundColor = backgroundColor;
     self.cellBottomLabel.backgroundColor = backgroundColor;
-    
+
     self.messageBubbleImageView.backgroundColor = backgroundColor;
     self.avatarImageView.backgroundColor = [UIColor clearColor];
-    
+
     self.messageBubbleContainerView.backgroundColor = backgroundColor;
     self.avatarContainerView.backgroundColor = [UIColor clearColor];
 }
@@ -240,7 +245,7 @@
     if (CGSizeEqualToSize(avatarViewSize, self.avatarViewSize)) {
         return;
     }
-    
+
     [self jsq_updateConstraint:self.avatarContainerViewWidthConstraint withConstant:avatarViewSize.width];
     [self jsq_updateConstraint:self.avatarContainerViewHeightConstraint withConstant:avatarViewSize.height];
 }
@@ -250,7 +255,7 @@
     if (UIEdgeInsetsEqualToEdgeInsets(textViewFrameInsets, self.textViewFrameInsets)) {
         return;
     }
-    
+
     [self jsq_updateConstraint:self.textViewTopVerticalSpaceConstraint withConstant:textViewFrameInsets.top];
     [self jsq_updateConstraint:self.textViewBottomVerticalSpaceConstraint withConstant:textViewFrameInsets.bottom];
     [self jsq_updateConstraint:self.textViewAvatarHorizontalSpaceConstraint withConstant:textViewFrameInsets.right];
@@ -264,11 +269,12 @@
     }
     
     //[self.messageBubbleImageView removeFromSuperview];
+
     [self.textView removeFromSuperview];
-    
+
     [mediaView setTranslatesAutoresizingMaskIntoConstraints:NO];
     mediaView.frame = self.messageBubbleContainerView.bounds;
-    
+
     [self.messageBubbleContainerView addSubview:mediaView];
     //[self.messageBubbleContainerView jsq_pinAllEdgesOfSubview:mediaView];
     
@@ -278,7 +284,7 @@
     [self.messageBubbleContainerView jsq_pinSubview:mediaView toEdge:NSLayoutAttributeRight withConstant:2.5];
 
     _mediaView = mediaView;
-    
+
     //  because of cell re-use (and caching media views, if using built-in library media item)
     //  we may have dequeued a cell with a media view and add this one on top
     //  thus, remove any additional subviews hidden behind the new media view
@@ -316,7 +322,7 @@
     if (constraint.constant == constant) {
         return;
     }
-    
+
     constraint.constant = constant;
 }
 
@@ -325,7 +331,7 @@
 - (void)jsq_handleTapGesture:(UITapGestureRecognizer *)tap
 {
     CGPoint touchPt = [tap locationInView:self];
-    
+
     if (CGRectContainsPoint(self.avatarContainerView.frame, touchPt)) {
         [self.delegate messagesCollectionViewCellDidTapAvatar:self];
     }
@@ -340,11 +346,11 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     CGPoint touchPt = [touch locationInView:self];
-    
+
     if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]]) {
         return CGRectContainsPoint(self.messageBubbleContainerView.frame, touchPt);
     }
-    
+
     return YES;
 }
 
