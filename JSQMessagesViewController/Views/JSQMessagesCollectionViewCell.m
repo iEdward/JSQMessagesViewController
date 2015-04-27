@@ -271,6 +271,7 @@
     }
     
     //[self.messageBubbleImageView removeFromSuperview];
+
     [self.textView removeFromSuperview];
 
     [mediaView setTranslatesAutoresizingMaskIntoConstraints:NO];

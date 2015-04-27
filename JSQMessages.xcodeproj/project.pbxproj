@@ -421,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				8861666C19F492B70025B958 /* JSQMessagesAssets.bundle */,
-				E525EFB61A9C5F01006FF32D /* JSQMessagesAssets.bundle */,
 				8841B88219F4983C00EA16B6 /* Strings */,
 			);
 			path = Assets;
