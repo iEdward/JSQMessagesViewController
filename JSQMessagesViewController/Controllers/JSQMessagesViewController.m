@@ -605,6 +605,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 {
     if (action == @selector(copy:) || action == @selector(delete:)) {
         return YES;
+
     if (action == @selector(copy:)) {
         id<JSQMessageData> messageData = [((JSQMessagesCollectionView *)collectionView).dataSource
                                           collectionView:(JSQMessagesCollectionView *)collectionView
@@ -613,9 +614,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
             return YES;
         }
     }
-    if (action == @selector(delete:)) {
-        return YES;
-    }
+
     return NO;
 }
 
