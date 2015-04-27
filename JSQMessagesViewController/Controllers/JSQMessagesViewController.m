@@ -595,7 +595,12 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
     if (action == @selector(copy:)) {
-        return YES;
+        id<JSQMessageData> messageData = [((JSQMessagesCollectionView *)collectionView).dataSource
+                                          collectionView:(JSQMessagesCollectionView *)collectionView
+                                          messageDataForItemAtIndexPath:indexPath];
+        if (!messageData.isMediaMessage) {
+            return YES;
+        }
     }
     if (action == @selector(delete:)) {
         return YES;
