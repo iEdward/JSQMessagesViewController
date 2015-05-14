@@ -172,6 +172,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 - (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 {
     return layoutAttributes;
+
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
@@ -315,6 +316,8 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
         return;
     }
     
+
+    //[self.messageBubbleImageView removeFromSuperview];
     [self.textView removeFromSuperview];
 
     [mediaView setTranslatesAutoresizingMaskIntoConstraints:NO];
