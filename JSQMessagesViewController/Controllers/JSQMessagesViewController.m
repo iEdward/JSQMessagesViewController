@@ -605,24 +605,13 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 {
     if (action == @selector(copy:) || action == @selector(delete:)) {
         return YES;
-
-    if (action == @selector(copy:)) {
-        id<JSQMessageData> messageData = [((JSQMessagesCollectionView *)collectionView).dataSource
-                                          collectionView:(JSQMessagesCollectionView *)collectionView
-                                          messageDataForItemAtIndexPath:indexPath];
-        if (!messageData.isMediaMessage) {
-            return YES;
-        }
     }
-
+    
     return NO;
 }
 
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
-    if (action == @selector(delete:)) {
-
-    }
     if (action == @selector(copy:)) {
         id<JSQMessageData> messageData = [collectionView.dataSource collectionView:collectionView messageDataForItemAtIndexPath:indexPath];
         [[UIPasteboard generalPasteboard] setString:[messageData text]];
