@@ -317,7 +317,6 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
         return;
     }
 
-    //[self.messageBubbleImageView removeFromSuperview];
     [self.textView removeFromSuperview];
 
     [mediaView setTranslatesAutoresizingMaskIntoConstraints:NO];
